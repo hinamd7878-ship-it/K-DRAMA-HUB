@@ -37,5 +37,44 @@
       "POSTER/Lovely Runner.jpg"
     ],
     "addedAt": "2026-08-21T15:00:00"
+  },
+  {
+    "id": 2,
+    "title": "My Deskmate",
+    "year": 2024,
+    "type": "K-Drama",
+    "genre": "Romance",
+    "rating": 9.1,
+    "status": "Completed",
+    "popular": true,
+    "isNew": false,
+    "poster": "POSTER/01.jpg",
+    "episodes": [
+      {
+        "episode": 1,
+        "link": ""
+      },
+      {
+        "episode": 2,
+        "link": ""
+      },
+      {
+        "episode": 3,
+        "link": ""
+      },
+      {
+        "episode": 4,
+        "link": ""
+      },
+      {
+        "episode": 5,
+        "link": ""
+      }
+    ],
+    "description": "A romantic fantasy drama filled with love, time travel and unforgettable moments.",
+    "photos": [
+      "POSTER/.jpg"
+    ],
+    "addedAt": "2026-08-26T15:00:00"
   }
 ]
