@@ -1,0 +1,1072 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#ffd6e7">
+
+<title>K-Drama Hub — Drama Details</title>
+
+<style>
+
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+:root{
+  --bg:#fff7fb;
+  --panel:#ffffff;
+  --panel2:#fff0f6;
+  --text:#3b3040;
+  --muted:#8b7d8d;
+  --line:#f0dce7;
+  --pink:#ff7fa8;
+  --pink2:#ff9fc0;
+  --blue:#8ccfff;
+  --blue2:#b9e5ff;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family:Inter,Segoe UI,Roboto,Arial,sans-serif;
+  color:var(--text);
+  min-height:100vh;
+
+  background:
+    radial-gradient(
+      700px 450px at 0% 0%,
+      rgba(255,170,205,.35),
+      transparent 70%
+    ),
+
+    radial-gradient(
+      700px 450px at 100% 10%,
+      rgba(155,215,255,.30),
+      transparent 70%
+    ),
+
+    linear-gradient(
+      180deg,
+      #fff9fc,
+      #f9fbff 50%,
+      #fff7fb
+    );
+}
+
+a{
+  text-decoration:none;
+  color:inherit;
+}
+
+.container{
+  width:min(1200px,100%);
+  margin:auto;
+  padding:0 20px;
+}
+
+
+/* HEADER */
+
+header{
+  position:sticky;
+  top:0;
+  z-index:100;
+
+  height:70px;
+
+  display:flex;
+  align-items:center;
+
+  background:rgba(255,255,255,.82);
+
+  backdrop-filter:blur(18px);
+
+  border-bottom:1px solid rgba(255,150,190,.20);
+
+  box-shadow:
+    0 5px 25px rgba(255,130,175,.08);
+}
+
+.nav{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.logo{
+  font-size:24px;
+  font-weight:950;
+  letter-spacing:1.5px;
+  color:#403441;
+}
+
+.logo span{
+  color:var(--pink);
+}
+
+.back{
+  border:1px solid #f0d4e1;
+
+  background:#fff;
+
+  color:#6b5b69;
+
+  padding:10px 15px;
+
+  border-radius:12px;
+
+  cursor:pointer;
+
+  font-weight:700;
+
+  transition:.2s;
+}
+
+.back:hover{
+  background:#fff2f7;
+  border-color:#ffabc8;
+  transform:translateY(-1px);
+}
+
+
+/* MOVIE PAGE */
+
+.movie-page{
+  padding:45px 0 70px;
+}
+
+.movie-layout{
+  display:grid;
+
+  grid-template-columns:300px 1fr;
+
+  gap:35px;
+
+  align-items:start;
+}
+
+
+/* POSTER */
+
+.poster-box{
+  border-radius:18px;
+
+  overflow:hidden;
+
+  border:1px solid #f1dce6;
+
+  background:#fff;
+
+  box-shadow:
+    0 20px 50px rgba(177,100,140,.15);
+}
+
+.poster-box img{
+  display:block;
+
+  width:100%;
+
+  aspect-ratio:2/3;
+
+  object-fit:cover;
+}
+
+
+/* DETAILS */
+
+.details{
+  padding-top:5px;
+}
+
+.kicker{
+  color:var(--pink);
+
+  font-size:12px;
+
+  font-weight:800;
+
+  letter-spacing:2px;
+
+  text-transform:uppercase;
+
+  margin-bottom:12px;
+}
+
+h1{
+  font-size:clamp(32px,5vw,56px);
+
+  line-height:1.05;
+
+  margin-bottom:15px;
+
+  color:#3e3340;
+}
+
+.description{
+  color:var(--muted);
+
+  line-height:1.7;
+
+  font-size:14px;
+
+  max-width:700px;
+
+  margin-bottom:20px;
+}
+
+
+/* META */
+
+.meta{
+  display:flex;
+
+  gap:9px;
+
+  flex-wrap:wrap;
+
+  margin-bottom:28px;
+}
+
+.tag{
+  padding:8px 12px;
+
+  border-radius:10px;
+
+  background:#fff;
+
+  border:1px solid #efdce6;
+
+  color:#746573;
+
+  font-size:12px;
+
+  box-shadow:0 3px 10px rgba(180,120,150,.06);
+}
+
+
+/* EPISODE BOX */
+
+.download-box{
+
+  margin-top:20px;
+
+  padding:22px;
+
+  border-radius:18px;
+
+  border:1px solid #f0d9e4;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255,255,255,.98),
+      rgba(255,245,250,.95)
+    );
+
+  max-width:700px;
+
+  box-shadow:
+    0 10px 35px rgba(190,120,155,.08);
+}
+
+.download-box h2{
+  font-size:20px;
+
+  margin-bottom:7px;
+
+  color:#493744;
+}
+
+.download-box > p{
+  color:var(--muted);
+
+  font-size:12px;
+
+  margin-bottom:20px;
+}
+
+
+/* EPISODES */
+
+.episodes{
+  display:flex;
+
+  flex-direction:column;
+
+  gap:10px;
+}
+
+.episode{
+  display:flex;
+
+  align-items:center;
+
+  justify-content:space-between;
+
+  gap:15px;
+
+  padding:13px 14px;
+
+  border-radius:12px;
+
+  background:#fff;
+
+  border:1px solid #f0dce6;
+
+  transition:.2s;
+}
+
+.episode:hover{
+  border-color:#ffb4ce;
+
+  background:#fff9fc;
+
+  transform:translateY(-1px);
+}
+
+.episode-number{
+  font-size:14px;
+
+  font-weight:800;
+
+  color:#594652;
+}
+
+.episode-btn{
+  display:inline-flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  gap:7px;
+
+  background:var(--pink);
+
+  color:white;
+
+  padding:9px 14px;
+
+  border-radius:9px;
+
+  font-size:12px;
+
+  font-weight:800;
+
+  transition:.2s;
+
+  white-space:nowrap;
+}
+
+.episode-btn:hover{
+  background:#ff6f9c;
+
+  transform:translateY(-1px);
+}
+
+.episode-unavailable{
+  color:#aaa0a8;
+
+  font-size:12px;
+
+  font-weight:700;
+}
+
+
+/* PHOTOS */
+
+.photos-section{
+  margin-top:55px;
+}
+
+.photos-section h2{
+  font-size:24px;
+
+  margin-bottom:18px;
+
+  color:#433540;
+}
+
+.photos{
+  display:grid;
+
+  grid-template-columns:repeat(4,1fr);
+
+  gap:12px;
+}
+
+.photos img{
+  width:100%;
+
+  aspect-ratio:16/10;
+
+  object-fit:cover;
+
+  border-radius:12px;
+
+  border:1px solid #efdce6;
+
+  background:#fff;
+
+  box-shadow:
+    0 6px 20px rgba(180,120,150,.08);
+}
+
+
+/* ERROR */
+
+.error{
+  text-align:center;
+
+  padding:100px 20px;
+}
+
+.error h1{
+  font-size:35px;
+}
+
+.error p{
+  color:var(--muted);
+
+  margin:12px 0 25px;
+}
+
+.error-btn{
+  display:inline-flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  background:var(--pink);
+
+  color:white;
+
+  padding:13px 20px;
+
+  border-radius:10px;
+
+  font-size:14px;
+
+  font-weight:800;
+}
+
+
+/* MOBILE */
+
+@media(max-width:800px){
+
+  .movie-layout{
+    grid-template-columns:210px 1fr;
+
+    gap:22px;
+  }
+
+  h1{
+    font-size:34px;
+  }
+
+  .photos{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+}
+
+
+/* SMALL MOBILE */
+
+@media(max-width:600px){
+
+  header{
+    height:62px;
+  }
+
+  .logo{
+    font-size:20px;
+  }
+
+  .movie-page{
+    padding-top:25px;
+  }
+
+  .movie-layout{
+    grid-template-columns:1fr;
+  }
+
+  .poster-box{
+    width:min(260px,100%);
+
+    margin:auto;
+  }
+
+  .details{
+    text-align:left;
+  }
+
+  h1{
+    font-size:32px;
+  }
+
+  .download-box{
+    padding:18px;
+  }
+
+  .episode{
+    padding:12px;
+  }
+
+  .episode-btn{
+    padding:9px 11px;
+  }
+
+  .photos{
+    grid-template-columns:1fr 1fr;
+
+    gap:8px;
+  }
+
+}
+
+
+/* VERY SMALL MOBILE */
+
+@media(max-width:350px){
+
+  .episode{
+    flex-direction:column;
+
+    align-items:stretch;
+  }
+
+  .episode-btn{
+    width:100%;
+  }
+
+  .photos{
+    grid-template-columns:1fr;
+  }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<header>
+
+  <div class="container nav">
+
+    <a class="logo" href="index.html">
+      K-<span>DRAMA HUB</span>
+    </a>
+
+    <button
+      class="back"
+      onclick="history.back()"
+    >
+      ← Back
+    </button>
+
+  </div>
+
+</header>
+
+
+<main class="movie-page">
+
+  <div class="container">
+
+    <div id="movieContent"></div>
+
+  </div>
+
+</main>
+
+
+
+<script>
+
+let movies = [];
+
+const content =
+  document.getElementById("movieContent");
+
+
+/* HTML SAFE */
+
+function escapeHtml(value){
+
+  return String(value ?? "").replace(
+    /[&<>"']/g,
+
+    c => ({
+      "&":"&amp;",
+      "<":"&lt;",
+      ">":"&gt;",
+      '"':"&quot;",
+      "'":"&#039;"
+    }[c])
+  );
+
+}
+
+
+/* GET MOVIE ID FROM URL */
+
+const params =
+  new URLSearchParams(
+    window.location.search
+  );
+
+const movieId =
+  params.get("id");
+
+
+/* LOAD MOVIES */
+
+async function loadMovie(){
+
+  try{
+
+    const response =
+      await fetch(
+        "movies.json",
+        {
+          cache:"no-store"
+        }
+      );
+
+
+    if(!response.ok){
+
+      throw new Error(
+        "movies.json not found"
+      );
+
+    }
+
+
+    movies =
+      await response.json();
+
+
+    if(!Array.isArray(movies)){
+
+      throw new Error(
+        "Invalid movies.json"
+      );
+
+    }
+
+
+    const movie =
+      movies.find(
+        m =>
+          String(m.id) ===
+          String(movieId)
+      );
+
+
+    if(!movie){
+
+      showError(
+        "Drama not found"
+      );
+
+      return;
+
+    }
+
+
+    showMovie(movie);
+
+
+  }catch(error){
+
+    console.error(error);
+
+    showError(
+      "Drama data could not be loaded"
+    );
+
+  }
+
+}
+
+
+
+/* SHOW MOVIE */
+
+function showMovie(movie){
+
+  const photos =
+    Array.isArray(movie.photos)
+      ? movie.photos
+      : [];
+
+
+  const episodes =
+    Array.isArray(movie.episodes)
+      ? movie.episodes
+      : [];
+
+
+  document.title =
+    `${movie.title || "Drama"} — K-Drama Hub`;
+
+
+
+  /*
+    CREATE EPISODE LIST
+  */
+
+  let episodeHTML = "";
+
+
+  if(episodes.length){
+
+    episodeHTML =
+      episodes
+        .map((item,index) => {
+
+          const episodeNumber =
+            item.episode ??
+            index + 1;
+
+
+          const link =
+            typeof item.link === "string"
+              ? item.link.trim()
+              : "";
+
+
+          if(link){
+
+            return `
+
+              <div class="episode">
+
+                <div class="episode-number">
+                  Episode ${escapeHtml(
+                    episodeNumber
+                  )}
+                </div>
+
+
+                <a
+                  class="episode-btn"
+                  href="${escapeHtml(link)}"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  ▶ Open / Download
+                </a>
+
+              </div>
+
+            `;
+
+          }
+
+
+          return `
+
+            <div class="episode">
+
+              <div class="episode-number">
+                Episode ${escapeHtml(
+                  episodeNumber
+                )}
+              </div>
+
+
+              <div class="episode-unavailable">
+                Not Available
+              </div>
+
+            </div>
+
+          `;
+
+        })
+        .join("");
+
+
+  }else{
+
+    episodeHTML = `
+
+      <div class="episode">
+
+        <div class="episode-number">
+          Episodes
+        </div>
+
+        <div class="episode-unavailable">
+          Episodes not added yet
+        </div>
+
+      </div>
+
+    `;
+
+  }
+
+
+
+  /*
+    MOVIE PAGE
+  */
+
+  content.innerHTML = `
+
+    <div class="movie-layout">
+
+
+      <!-- POSTER -->
+
+      <div class="poster-box">
+
+        <img
+          src="${escapeHtml(
+            movie.poster || ""
+          )}"
+
+          alt="${escapeHtml(
+            movie.title || "Drama"
+          )}"
+
+          onerror="
+            this.style.opacity='.25'
+          "
+        >
+
+      </div>
+
+
+
+      <!-- DETAILS -->
+
+      <div class="details">
+
+
+        <div class="kicker">
+          K-DRAMA HUB
+        </div>
+
+
+        <h1>
+          ${escapeHtml(
+            movie.title ||
+            "Untitled Drama"
+          )}
+        </h1>
+
+
+
+        <!-- META -->
+
+        <div class="meta">
+
+          <span class="tag">
+            ${escapeHtml(
+              movie.year || "N/A"
+            )}
+          </span>
+
+
+          <span class="tag">
+            ${escapeHtml(
+              movie.type || "Drama"
+            )}
+          </span>
+
+
+          <span class="tag">
+            ${escapeHtml(
+              movie.genre || "Drama"
+            )}
+          </span>
+
+
+          ${
+            movie.rating
+              ? `
+
+                <span class="tag">
+                  ⭐ ${escapeHtml(
+                    movie.rating
+                  )}
+                </span>
+
+              `
+              : ""
+          }
+
+
+          ${
+            movie.status
+              ? `
+
+                <span class="tag">
+                  ${escapeHtml(
+                    movie.status
+                  )}
+                </span>
+
+              `
+              : ""
+          }
+
+        </div>
+
+
+
+        <!-- DESCRIPTION -->
+
+        <p class="description">
+
+          ${escapeHtml(
+            movie.description ||
+            "Drama details and episode information."
+          )}
+
+        </p>
+
+
+
+        <!-- EPISODES -->
+
+        <div class="download-box">
+
+          <h2>
+            Episodes
+          </h2>
+
+          <p>
+            Select an episode to open or download it.
+          </p>
+
+
+          <div class="episodes">
+
+            ${episodeHTML}
+
+          </div>
+
+        </div>
+
+
+      </div>
+
+    </div>
+
+
+
+    <!-- PHOTOS -->
+
+    ${
+      photos.length
+      ?
+
+      `
+
+        <section class="photos-section">
+
+          <h2>
+            Drama Photos
+          </h2>
+
+
+          <div class="photos">
+
+            ${photos
+              .map(photo => `
+
+                <img
+                  src="${escapeHtml(photo)}"
+
+                  alt="${escapeHtml(
+                    movie.title ||
+                    "Drama"
+                  )} photo"
+
+                  loading="lazy"
+
+                  onerror="
+                    this.style.opacity='.25'
+                  "
+                >
+
+              `)
+              .join("")}
+
+          </div>
+
+        </section>
+
+      `
+
+      :
+
+      ""
+
+    }
+
+  `;
+
+}
+
+
+
+/* ERROR PAGE */
+
+function showError(message){
+
+  content.innerHTML = `
+
+    <div class="error">
+
+      <h1>
+        Oops! 💗
+      </h1>
+
+
+      <p>
+        ${escapeHtml(message)}
+      </p>
+
+
+      <a
+        class="error-btn"
+        href="index.html"
+      >
+        ← Back to Dramas
+      </a>
+
+    </div>
+
+  `;
+
+}
+
+
+/* START */
+
+loadMovie();
+
+</script>
+
+
+</body>
+</html>
+
