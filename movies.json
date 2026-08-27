@@ -76,5 +76,44 @@
       "POSTER/.jpg"
     ],
     "addedAt": "2026-08-26T15:00:00"
+  },
+   {
+    "id": 3,
+    "title": "The Early Spring",
+    "year": 2024,
+    "type": "K-Drama",
+    "genre": "Romance",
+    "rating": 9.1,
+    "status": "Completed",
+    "popular": true,
+    "isNew": false,
+    "poster": "POSTER/The Early Spring.jpeg",
+    "episodes": [
+      {
+        "episode": 1,
+        "link": ""
+      },
+      {
+        "episode": 2,
+        "link": ""
+      },
+      {
+        "episode": 3,
+        "link": ""
+      },
+      {
+        "episode": 4,
+        "link": ""
+      },
+      {
+        "episode": 5,
+        "link": ""
+      }
+    ],
+    "description": "A romantic fantasy drama filled with love, time travel and unforgettable moments.",
+    "photos": [
+      "POSTER/.jpg"
+    ],
+    "addedAt": "2026-08-27T15:00:00"
   }
 ]
